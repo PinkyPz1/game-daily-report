@@ -7,7 +7,7 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
             padding: 40px 20px;
@@ -17,57 +17,102 @@
         .header {
             text-align: center; margin-bottom: 30px; padding: 30px;
             background: rgba(255,255,255,0.05); border-radius: 20px;
-            backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .header h1 {
             font-size: 32px;
             background: linear-gradient(90deg, #00d4ff, #7b2cbf);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
         }
-        .header .date { color: #8892b0; font-size: 16px; }
+        .header .date { color: #8892b0; font-size: 16px; margin-top: 10px; }
         .card {
             background: rgba(255,255,255,0.05); border-radius: 16px;
             padding: 24px; margin-bottom: 20px;
-            backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .card-title { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
         
-        /* 趋势分析样式 */
-        .trend-region { margin-bottom: 24px; }
-        .region-title { 
-            font-size: 16px; font-weight: 600; margin-bottom: 16px; 
-            padding: 12px 16px; background: rgba(255,255,255,0.05); border-radius: 8px; 
+        /* 市场动态 */
+        .news-item {
+            padding: 16px; background: rgba(0,0,0,0.2); border-radius: 12px;
+            margin-bottom: 12px; text-decoration: none; color: inherit; display: block;
+            transition: all 0.3s ease;
         }
-        .trend-item {
-            display: flex; padding: 20px; background: rgba(0,0,0,0.2);
-            border-radius: 12px; margin-bottom: 16px;
+        .news-item:hover { background: rgba(255,255,255,0.1); transform: translateX(5px); }
+        .news-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+        .news-meta { display: flex; gap: 12px; font-size: 12px; color: #8892b0; margin-bottom: 8px; flex-wrap: wrap; }
+        .tag { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+        .tag-policy { background: rgba(34,197,94,0.2); color: #22c55e; }
+        .tag-trend { background: rgba(234,179,8,0.2); color: #eab308; }
+        .tag-product { background: rgba(168,85,247,0.2); color: #a855f7; }
+        .tag-company { background: rgba(59,130,246,0.2); color: #3b82f6; }
+        .tag-major { background: rgba(239,68,68,0.2); color: #ef4444; }
+        .news-summary { font-size: 13px; color: #ccd6f6; line-height: 1.6; }
+        
+        /* 品类占比 */
+        .category-section { margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; }
+        .category-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .category-title { font-size: 15px; font-weight: 600; }
+        .category-percent { font-size: 24px; font-weight: 700; color: #00d4ff; }
+        .sub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+        .sub-item { background: rgba(0,0,0,0.2); border-radius: 8px; padding: 12px; }
+        .sub-name { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+        .sub-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; margin-bottom: 4px; }
+        .sub-fill { height: 100%; border-radius: 3px; }
+        .sub-info { font-size: 10px; color: #8892b0; }
+        
+        /* 趋势入口 */
+        .trend-entry {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
         }
-        .trend-stars { color: #fbbf24; font-size: 14px; margin-right: 12px; min-width: 70px; }
-        .trend-content { flex: 1; }
-        .trend-content h4 { 
-            font-size: 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; 
+        .trend-card {
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
         }
-        .trend-arrow { font-size: 11px; padding: 2px 8px; border-radius: 4px; }
-        .up { background: rgba(34,197,94,0.2); color: #22c55e; }
-        .down { background: rgba(239,68,68,0.2); color: #ef4444; }
-        .stable { background: rgba(234,179,8,0.2); color: #eab308; }
-        .trend-desc { font-size: 13px; color: #ccd6f6; margin-bottom: 12px; line-height: 1.6; }
-        .core-thinking { 
-            background: rgba(59,130,246,0.1); border-left: 3px solid #3b82f6;
-            padding: 12px; border-radius: 0 8px 8px 0; margin-bottom: 12px;
+        .trend-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
         }
-        .core-thinking-title { color: #3b82f6; font-weight: 600; font-size: 12px; margin-bottom: 6px; }
-        .core-thinking-content { font-size: 12px; color: #ccd6f6; line-height: 1.6; }
-        .analysis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
-        .pros, .cons { padding: 12px; border-radius: 8px; font-size: 12px; }
-        .pros { background: rgba(34,197,94,0.1); border-left: 3px solid #22c55e; }
-        .cons { background: rgba(239,68,68,0.1); border-left: 3px solid #ef4444; }
-        .pros-title { color: #22c55e; font-weight: 600; margin-bottom: 6px; }
-        .cons-title { color: #ef4444; font-weight: 600; margin-bottom: 6px; }
+        .trend-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .trend-card-desc {
+            font-size: 13px;
+            color: #8892b0;
+            margin-bottom: 12px;
+        }
+        .trend-preview {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .trend-tag {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.1);
+        }
+        .trend-tag.up { background: rgba(34,197,94,0.2); color: #22c55e; }
+        .trend-tag.down { background: rgba(239,68,68,0.2); color: #ef4444; }
+        .arrow { margin-left: auto; color: #00d4ff; }
         
         .footer { text-align: center; padding: 20px; color: #64748b; font-size: 12px; }
-        @media (max-width: 768px) { .analysis { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            .sub-grid, .trend-entry { grid-template-columns: 1fr; } 
+        }
     </style>
 </head>
 <body>
@@ -77,242 +122,274 @@
             <div class="date">2026年3月27日 | 数据周期：2023-2025</div>
         </div>
 
-        <!-- 趋势分析 - 国内 -->
+        <!-- 市场动态 20条 -->
         <div class="card">
-            <div class="card-title">📈 趋势分析 - 国内市场（2023-2025）</div>
+            <div class="card-title">📰 今日市场动态（20条）</div>
             
-            <div class="trend-region">
-                <div class="region-title">🇨🇳 国内趋势</div>
-                
-                <div class="trend-item">
-                    <div class="trend-stars">⭐⭐⭐⭐⭐</div>
-                    <div class="trend-content">
-                        <h4>休闲益智 <span class="trend-arrow up">↑ 强势上升</span></h4>
-                        <div class="trend-desc">用户碎片化时间增加，轻度游戏需求旺盛。微信小游戏DAU破亿，IAA变现模式成熟。</div>
-                        <div class="core-thinking">
-                            <div class="core-thinking-title">💡 核心思考</div>
-                            <div class="core-thinking-content">
-                                <strong>为什么上升：</strong>疫情后用户行为永久性改变，碎片化娱乐成为主流。微信生态提供了完美的流量闭环——社交裂变+即点即玩+IAA变现，形成了"获客-留存-变现"的完整飞轮。羊了个羊的成功验证了"难度曲线+社交炫耀"的爆款公式，大量厂商跟进模仿，品类供给爆发。<br><br>
-                                <strong>关键转折点：</strong>2023年微信小游戏广告分成政策优化，开发者可获得更高收益，直接刺激了供给端增长。
-                            </div>
-                        </div>
-                        <div class="analysis">
-                            <div class="pros">
-                                <div class="pros-title">✅ 优势</div>
-                                <div>• 获客成本低，传播性强<br>• IAA变现稳定<br>• 研发周期短，迭代快</div>
-                            </div>
-                            <div class="cons">
-                                <div class="cons-title">❌ 劣势</div>
-                                <div>• 用户LTV较低<br>• 同质化严重<br>• 依赖买量政策风险</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <a href="https://www.gameres.com/917090.html" target="_blank" class="news-item">
+                <div class="news-title">2026年3月130款国产网络游戏获批版号</div>
+                <div class="news-meta"><span class="tag tag-policy">政策利好</span><span>GameRes</span><span>2026-03-25</span></div>
+                <div class="news-summary">国家新闻出版署下发130款游戏版号，腾讯《粒粒的小人国》、三七互娱《小头盔大冒险》、恺英网络《传世群英传》等获批...</div>
+            </a>
 
-                <div class="trend-item">
-                    <div class="trend-stars">⭐⭐⭐⭐⭐</div>
-                    <div class="trend-content">
-                        <h4>模拟经营 <span class="trend-arrow up">↑ 快速上升</span></h4>
-                        <div class="trend-desc">"种田"文化流行，女性用户占比提升至45%。长留存特性受发行商青睐，混合变现模式成熟。</div>
-                        <div class="core-thinking">
-                            <div class="core-thinking-title">💡 核心思考</div>
-                            <div class="core-thinking-content">
-                                <strong>为什么上升：</strong>这是"情绪价值"游戏的典型代表。后疫情时代用户对"慢生活""治愈系"内容的需求激增，模拟经营游戏提供的"建造-收获-成就感"循环正好满足了这种心理需求。《桃源深处有人家》的成功证明：女性用户的付费意愿被严重低估，她们更愿意为"颜值+情感"买单。<br><br>
-                                <strong>品类进化：</strong>从早期的纯单机模拟（开心农场）到如今的社交+剧情+装饰的混合形态，ARPU值提升了3-5倍。
-                            </div>
-                        </div>
-                        <div class="analysis">
-                            <div class="pros">
-                                <div class="pros-title">✅ 优势</div>
-                                <div>• 用户留存率高<br>• 女性用户付费意愿强<br>• 社交裂变效果好</div>
-                            </div>
-                            <div class="cons">
-                                <div class="cons-title">❌ 劣势</div>
-                                <div>• 研发成本高于超休闲<br>• 需要持续内容更新<br>• 前期回收周期长</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <a href="https://www.gameres.com/917059.html" target="_blank" class="news-item">
+                <div class="news-title">2026游戏行业商业模式变革：从规模扩张向效率与变现转变</div>
+                <div class="news-meta"><span class="tag tag-trend">行业趋势</span><span>GameRes</span><span>2026-03-25</span></div>
+                <div class="news-summary">SensorTower报告显示2025年全球移动游戏下载量下滑7%，但内购收入增长1.4%...</div>
+            </a>
 
-                <div class="trend-item">
-                    <div class="trend-stars">⭐⭐⭐⭐</div>
-                    <div class="trend-content">
-                        <h4>策略塔防 <span class="trend-arrow up">↑ 稳步上升</span></h4>
-                        <div class="trend-desc">混合变现模式成熟，ARPU值提升。《口袋奇兵》等融合玩法成功验证，SLG+小游戏成为新趋势。</div>
-                        <div class="core-thinking">
-                            <div class="core-thinking-title">💡 核心思考</div>
-                            <div class="core-thinking-content">
-                                <strong>为什么上升：</strong>传统SLG（如《三国志战略版》）验证了中国玩家对策略游戏的热爱，但APP端获客成本已高到离谱（单用户>500元）。小游戏端通过"合成+SLG"的轻量化改造，将获客成本降到APP端的1/10，同时保留了SLG的高付费深度。《口袋奇兵》月流水1.5亿+证明了这个模式的可行性。<br><br>
-                                <strong>关键创新：</strong>将SLG的"城建-造兵-对战"核心循环简化为"合成升级"，大幅降低了理解门槛。
-                            </div>
-                        </div>
-                        <div class="analysis">
-                            <div class="pros">
-                                <div class="pros-title">✅ 优势</div>
-                                <div>• 用户付费率高<br>• LTV长，回收稳定<br>• 品类壁垒较高</div>
-                            </div>
-                            <div class="cons">
-                                <div class="cons-title">❌ 劣势</div>
-                                <div>• 研发成本高<br>• 运营复杂度高<br>• 用户获取成本高</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <a href="https://www.gameres.com/917092.html" target="_blank" class="news-item">
+                <div class="news-title">《洛克王国：世界》全平台上线，6000万预约量引爆市场</div>
+                <div class="news-meta"><span class="tag tag-product">产品动态</span><span>GameRes</span><span>2026-03-25</span></div>
+                <div class="news-summary">腾讯魔方工作室群自主研发的精灵大世界游戏正式上线，上线前获得超6000万预约量...</div>
+            </a>
 
-                <div class="trend-item">
-                    <div class="trend-stars">⭐⭐</div>
-                    <div class="trend-content">
-                        <h4>角色扮演 <span class="trend-arrow down">↓ 缓慢下降</span></h4>
-                        <div class="trend-desc">头部产品固化，传奇/仙侠类主导。中重度玩家向APP端迁移，小游戏平台承载能力有限。</div>
-                        <div class="core-thinking">
-                            <div class="core-thinking-title">💡 核心思考</div>
-                            <div class="core-thinking-content">
-                                <strong>为什么下降：</strong>RPG的核心体验是"沉浸式成长"，需要长时间在线、复杂操作、深度社交——这些与小游戏"即点即玩、随时退出"的场景天然冲突。传奇/仙侠类能维持份额是因为目标用户（30-45岁男性）对画质/操作要求低，且付费能力强。但整体来看，RPG在小游戏端是"降级体验"，留不住核心玩家。<br><br>
-                                <strong>结构性问题：</strong>版号限制导致新品供给不足，老产品生命周期进入尾声，品类整体萎缩。
-                            </div>
-                        </div>
-                        <div class="analysis">
-                            <div class="pros">
-                                <div class="pros-title">✅ 优势</div>
-                                <div>• 用户付费能力强<br>• 成熟商业模式<br>• 用户忠诚度高</div>
-                            </div>
-                            <div class="cons">
-                                <div class="cons-title">❌ 劣势</div>
-                                <div>• 市场饱和新入局难<br>• 获客成本极高<br>• 版号限制政策风险</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <a href="https://www.gameres.com/917007.html" target="_blank" class="news-item">
+                <div class="news-title">米哈游预研UE5打造的3D MOBA游戏项目</div>
+                <div class="news-meta"><span class="tag tag-company">厂商动态</span><span>GameRes</span><span>2026-03-25</span></div>
+                <div class="news-summary">米哈游官网招聘信息更新，新增一个预研项目：UE5打造的3D MOBA游戏...</div>
+            </a>
 
-                <div class="trend-item">
-                    <div class="trend-stars">⭐⭐</div>
-                    <div class="trend-content">
-                        <h4>动作冒险 <span class="trend-arrow down">↓ 缓慢下降</span></h4>
-                        <div class="trend-desc">中重度玩家向APP端迁移，小游戏平台轻度化趋势明显。操作体验受限，用户留存率低。</div>
-                        <div class="core-thinking">
-                            <div class="core-thinking-title">💡 核心思考</div>
-                            <div class="core-thinking-content">
-                                <strong>为什么下降：</strong>动作游戏的核心是"操作爽感"，但小游戏的性能限制、屏幕尺寸、输入方式（触摸vs手柄）都无法满足核心动作玩家的需求。跑酷类还能维持是因为足够轻度，但格斗、ACT等重度动作品类在小游戏端几乎绝迹。用户用脚投票——要玩动作游戏就去APP端或主机端。<br><br>
-                                <strong>品类分化：</strong>纯动作向小游戏死亡，但"动作+其他"的融合玩法（如动作跑酷）仍有生存空间。
-                            </div>
-                        </div>
-                        <div class="analysis">
-                            <div class="pros">
-                                <div class="pros-title">✅ 优势</div>
-                                <div>• 核心玩家付费能力强<br>• 操作爽感吸引用户<br>• 竞技性强留存好</div>
-                            </div>
-                            <div class="cons">
-                                <div class="cons-title">❌ 劣势</div>
-                                <div>• 平台性能限制<br>• 操作体验差<br>• 用户向APP端流失</div>
-                            </div>
-                        </div>
+            <a href="https://36kr.com/p/3731039464698376" target="_blank" class="news-item">
+                <div class="news-title">沙特410亿买下字节游戏业务，沐瞳60亿美元出售落定</div>
+                <div class="news-meta"><span class="tag tag-major">资本运作</span><span>36氪</span><span>2026-03-25</span></div>
+                <div class="news-summary">沙特以约60亿美元收购沐瞳科技，字节游戏业务"变小"战略正式落地...</div>
+            </a>
+
+            <a href="https://36kr.com/p/3736979591495944" target="_blank" class="news-item">
+                <div class="news-title">大厂疯抢AI游戏人才，200万起步不设上限</div>
+                <div class="news-meta"><span class="tag tag-trend">行业趋势</span><span>36氪</span><span>2026-03-25</span></div>
+                <div class="news-summary">AI游戏人才成为各大厂争夺焦点，薪资水平持续攀升，年薪200万起步...</div>
+            </a>
+
+            <a href="https://36kr.com/p/3720706506226048" target="_blank" class="news-item">
+                <div class="news-title">苹果官宣游戏税抽成25%，小游戏降至12%</div>
+                <div class="news-meta"><span class="tag tag-policy">政策利好</span><span>36氪</span><span>2026-03-25</span></div>
+                <div class="news-summary">苹果调整游戏分成政策，小游戏开发者抽成降至12%，获得更大利润空间...</div>
+            </a>
+
+            <a href="https://36kr.com/p/3736185677611015" target="_blank" class="news-item">
+                <div class="news-title">一爆款小游戏消耗过亿、日耗百万，出海猛冲</div>
+                <div class="news-meta"><span class="tag tag-product">出海动态</span><span>36氪</span><span>2026-03-25</span></div>
+                <div class="news-summary">长沙游品科技《Cell Survivor》海外流水爆发，2026年2月达6761万元...</div>
+            </a>
+
+            <a href="https://www.gameres.com/916991.html" target="_blank" class="news-item">
+                <div class="news-title">2026年主机市场新变局：微软、索尼、任天堂与Valve的战略布局</div>
+                <div class="news-meta"><span class="tag tag-trend">行业趋势</span><span>GameRes</span><span>2026-03-25</span></div>
+                <div class="news-summary">微软公布下一代XBox主机代号Project Helix，索尼传出将重返独占游戏策略...</div>
+            </a>
+
+            <a href="#" class="news-item">
+                <div class="news-title">B站小游戏发力，月耗千万杀出头部爆款</div>
+                <div class="news-meta"><span class="tag tag-product">产品动态</span><span>游戏茶馆</span><span>2026-03-25</span></div>
+                <div class="news-summary">B站小游戏平台近期发力，月耗千万级别投放杀出头部爆款产品...</div>
+            </a>
+
+            <a href="#" class="news-item">
+                <div class="news-title">深圳厂商小游戏赛道集体爆发，锁定畅销榜top10</div>
+                <div class="news-meta"><span class="tag tag-company">厂商动态</span><span>游戏陀螺</span><span>2026-03-25</span></div>
+                <div class="news-summary">开年没多久，深圳的游戏厂商就在小游戏赛道实现了一次集体爆发...</div>
+            </a>
+
+            <a href="https://www.gameres.com/917080.html" target="_blank" class="news-item">
+                <div class="news-title">游戏初创团队研发保质期：两年是生死线</div>
+                <div class="news-meta"><span class="tag tag-trend">行业趋势</span><span>GameRes</span><span>2026-03-25</span></div>
+                <div class="news-summary">对于初创游戏团队，2年左右是一个必须强制复盘的危险节点...</div>
+            </a>
+
+            <a href="#" class="news-item">
+                <div class="news-title">2025年中国游戏市场收入3507.89亿元，同比增长7.68%</div>
+                <div class="news-meta"><span class="tag tag-major">市场数据</span><span>游戏工委</span><span>2026-03-25</span></div>
+                <div class="news-summary">2025年中国游戏市场实际销售收入达3507.89亿元，同比增长7.68%...</div>
+            </a>
+
+            <a href="#" class="news-item">
+                <div class="news-title">Epic Games裁员超1000人，占员工总数16%</div>
+                <div class="news-meta"><span class="tag tag-company">厂商动态</span><span>海外媒体</span><span>2026-03-25</span></div>
+                <div class="news-summary">Epic Games宣布裁员约1000人，占员工总数16%，同时出售Bandcamp...</div>
+            </a>
+
+            <a href="#" class="news-item">
+                <div class="news-title">全球手游市场收入818亿美元，同比增长1.3%</div>
+                <div class="news-meta"><span class="tag tag-major">市场数据</span><span>Sensor Tower</span><span>2026-03-25</span></div>
+                <div class="news-summary">2025年全球移动游戏市场收入达818亿美元，同比增长1.3%...</div>
+            </a>
+
+            <a href="#" class="news-item">
+                <div class="news-title">微信小游戏DAU破亿，超300款季度流水超千万</div>
+                <div class="news-meta"><span class="tag tag-product">平台动态</span><span>微信公开课</span><span>2026-03-25</span></div>
+                <div class="news-summary">微信小游戏日活跃用户突破1亿，超过300款游戏季度流水超过千万...</div>
+            </a>
+
+            <a href="#" class="news-item">
+                <div class="news-title">射击品类贡献超百亿元增量，成为2025年最大增长品类</div>
+                <div class="news-meta"><span class="tag tag-trend">品类分析</span><span>行业报告</span><span>2026-03-25</span></div>
+                <div class="news-summary">射击类游戏在2025年贡献超百亿元市场增量，成为年度最大增长品类...</div>
+            </a>
+
+            <a href="#" class="news-item">
+                <div class="news-title">中国厂商GDC 2026贡献60余场议题，技术输出全球</div>
+                <div class="news-meta"><span class="tag tag-company">行业动态</span><span>GDC官方</span><span>2026-03-25</span></div>
+                <div class="news-summary">中国游戏厂商在GDC 2026上贡献60余场技术议题，展示中国游戏技术实力...</div>
+            </a>
+
+            <a href="#" class="news-item">
+                <div class="news-title">女性向游戏市场规模同比增长124.1%</div>
+                <div class="news-meta"><span class="tag tag-trend">品类分析</span><span>行业报告</span><span>2026-03-25</span></div>
+                <div class="news-summary">女性向游戏市场在2025年迎来爆发，规模同比增长124.1%...</div>
+            </a>
+
+            <a href="#" class="news-item">
+                <div class="news-title">点点互动登顶2025年出海榜首，收入超10亿美元</div>
+                <div class="news-meta"><span class="tag tag-company">出海动态</span><span>Sensor Tower</span><span>2026-03-25</span></div>
+                <div class="news-summary">点点互动凭借《Whiteout Survival》等游戏登顶2025年中国手游出海收入榜首...</div>
+            </a>
+        </div>
+
+        <!-- 品类占比详细拆解 -->
+        <div class="card">
+            <div class="card-title">📊 品类占比详细拆解（国内小游戏市场 2023-2025）</div>
+            
+            <div class="category-section">
+                <div class="category-header">
+                    <div><div class="category-title">🧩 休闲益智</div><div style="font-size:11px;color:#8892b0;">占比 33% | 环比 +1%</div></div>
+                    <div class="category-percent">33%</div>
+                </div>
+                <div class="sub-grid">
+                    <div class="sub-item">
+                        <div class="sub-name">消除类 45%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:100%;background:#00d4ff;"></div></div>
+                        <div class="sub-info">羊了个羊、开心消消乐</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">合成类 25%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:55%;background:#00d4ff;"></div></div>
+                        <div class="sub-info">合成大西瓜、2048</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">找茬类 15%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:33%;background:#00d4ff;"></div></div>
+                        <div class="sub-info">文字来找茬、找不同</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">其他 15%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:33%;background:#00d4ff;"></div></div>
+                        <div class="sub-info">弹球、跳跃等</div>
                     </div>
                 </div>
             </div>
 
-            <!-- 海外趋势 -->
-            <div class="trend-region">
-                <div class="region-title">🌍 海外趋势</div>
-                
-                <div class="trend-item">
-                    <div class="trend-stars">⭐⭐⭐⭐⭐</div>
-                    <div class="trend-content">
-                        <h4>动作跑酷 <span class="trend-arrow up">↑ 爆发增长</span></h4>
-                        <div class="trend-desc">融合RPG元素的跑酷玩法兴起，《Kingshot》等表现亮眼。超休闲市场回暖，+3%环比增长。</div>
-                        <div class="core-thinking">
-                            <div class="core-thinking-title">💡 核心思考</div>
-                            <div class="core-thinking-content">
-                                <strong>为什么上升：</strong>海外超休闲市场经历2022-2023年的eCPM暴跌后，厂商被迫创新——单纯跑酷已无法获客，必须加入RPG的成长要素（角色升级、装备收集、技能Build）。《Kingshot》的成功证明："跑酷+射击+RPG"的融合玩法可以将7留从传统的5%提升到15%+，同时IAP占比从5%提升到30%。<br><br>
-                                <strong>品类进化：</strong>从"无尽跑酷"到"关卡制+RPG"，从纯IAA到混合变现，从单局30秒到单局3分钟。
-                            </div>
-                        </div>
-                        <div class="analysis">
-                            <div class="pros">
-                                <div class="pros-title">✅ 优势</div>
-                                <div>• 全球受众广泛<br>• 广告变现成熟<br>• 研发成本低</div>
-                            </div>
-                            <div class="cons">
-                                <div class="cons-title">❌ 劣势</div>
-                                <div>• eCPM持续下降<br>• 用户留存率低<br>• 创意依赖度高</div>
-                            </div>
-                        </div>
+            <div class="category-section">
+                <div class="category-header">
+                    <div><div class="category-title">⚔️ 角色扮演</div><div style="font-size:11px;color:#8892b0;">占比 21% | 环比 -1%</div></div>
+                    <div class="category-percent">21%</div>
+                </div>
+                <div class="sub-grid">
+                    <div class="sub-item">
+                        <div class="sub-name">传奇类 40%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:100%;background:#7b2cbf;"></div></div>
+                        <div class="sub-info">原始传奇、美杜莎传奇</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">仙侠类 30%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:75%;background:#7b2cbf;"></div></div>
+                        <div class="sub-info">仙剑奇侠传、凡人修仙传</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">二次元 20%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:50%;background:#7b2cbf;"></div></div>
+                        <div class="sub-info">崩坏星穹铁道、原神</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">其他 10%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:25%;background:#7b2cbf;"></div></div>
+                        <div class="sub-info">武侠、魔幻等</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="trend-item">
-                    <div class="trend-stars">⭐⭐⭐⭐⭐</div>
-                    <div class="trend-content">
-                        <h4>模拟经营 <span class="trend-arrow up">↑ 双市场增长</span></h4>
-                        <div class="trend-desc">海外用户对模拟类游戏接受度高，长留存+高变现双重优势。《Family Farm Adventure》等持续热销。</div>
-                        <div class="core-thinking">
-                            <div class="core-thinking-title">💡 核心思考</div>
-                            <div class="core-thinking-content">
-                                <strong>为什么上升：</strong>海外模拟经营市场比国内更成熟（《模拟人生》系列培养了20年用户），且付费习惯更好。国内厂商出海的优势在于：1）美术品质卷赢了海外本土厂商；2）混合变现模式（IAA+IAP）比海外纯IAP模式更灵活；3）买量效率更高。《Family Farm Adventure》月流水2500万美元证明了中国厂商在这个品类的竞争力。<br><br>
-                                <strong>文化差异：</strong>欧美用户喜欢"农场+剧情"，东南亚用户喜欢"开店+社交"，需要针对性设计。
-                            </div>
-                        </div>
-                        <div class="analysis">
-                            <div class="pros">
-                                <div class="pros-title">✅ 优势</div>
-                                <div>• 全球用户接受度高<br>• 付费率高于国内<br>• 生命周期长</div>
-                            </div>
-                            <div class="cons">
-                                <div class="cons-title">❌ 劣势</div>
-                                <div>• 本地化成本高<br>• 文化差异风险<br>• 竞争激烈</div>
-                            </div>
-                        </div>
+            <div class="category-section">
+                <div class="category-header">
+                    <div><div class="category-title">🏰 策略塔防</div><div style="font-size:11px;color:#8892b0;">占比 16% | 环比 +1%</div></div>
+                    <div class="category-percent">16%</div>
+                </div>
+                <div class="sub-grid">
+                    <div class="sub-item">
+                        <div class="sub-name">SLG策略 45%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:100%;background:#22c55e;"></div></div>
+                        <div class="sub-info">口袋奇兵、三国志战略版</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">塔防 30%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:67%;background:#22c55e;"></div></div>
+                        <div class="sub-info">保卫萝卜、王国保卫战</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">自走棋 15%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:33%;background:#22c55e;"></div></div>
+                        <div class="sub-info">金铲铲之战、云顶之弈</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">卡牌策略 10%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:22%;background:#22c55e;"></div></div>
+                        <div class="sub-info">炉石传说、月圆之夜</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="trend-item">
-                    <div class="trend-stars">⭐⭐⭐</div>
-                    <div class="trend-content">
-                        <h4>益智解谜 <span class="trend-arrow down">↓ 持续下滑</span></h4>
-                        <div class="trend-desc">传统三消市场格局稳定，新品突围困难。连续两期下滑(-2%)，热度降温明显。</div>
-                        <div class="core-thinking">
-                            <div class="core-thinking-title">💡 核心思考</div>
-                            <div class="core-thinking-content">
-                                <strong>为什么下降：</strong>三消品类是"赢家通吃"的典型——《Candy Crush》《Royal Match》等头部产品占据了80%的市场份额和90%的广告预算，新入局者几乎不可能突围。更致命的是，三消的核心玩法30年没有本质创新，用户审美疲劳严重。虽然品类总盘子还在，但增长已经停滞，属于"存量搏杀"阶段。<br><br>
-                                <strong>转型方向：</strong>部分厂商尝试"三消+装修/剧情"的混合玩法，但效果有限，用户还是认老牌产品。
-                            </div>
-                        </div>
-                        <div class="analysis">
-                            <div class="pros">
-                                <div class="pros-title">✅ 优势</div>
-                                <div>• 用户基数大<br>• 变现模式成熟<br>• 品牌效应强</div>
-                            </div>
-                            <div class="cons">
-                                <div class="cons-title">❌ 劣势</div>
-                                <div>• 市场高度饱和<br>• 获客成本攀升<br>• 创新空间有限</div>
-                            </div>
-                        </div>
+            <div class="category-section">
+                <div class="category-header">
+                    <div><div class="category-title">🌾 模拟经营</div><div style="font-size:11px;color:#8892b0;">占比 13% | 环比 +1%</div></div>
+                    <div class="category-percent">13%</div>
+                </div>
+                <div class="sub-grid">
+                    <div class="sub-item">
+                        <div class="sub-name">农场经营 40%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:100%;background:#eab308;"></div></div>
+                        <div class="sub-info">桃源深处有人家、开心农场</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">开店经营 30%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:75%;background:#eab308;"></div></div>
+                        <div class="sub-info">动物餐厅、我的便利店</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">装修类 20%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:50%;background:#eab308;"></div></div>
+                        <div class="sub-info">我的小家、梦幻家园</div>
+                    </div>
+                    <div class="sub-item">
+                        <div class="sub-name">其他 10%</div>
+                        <div class="sub-bar"><div class="sub-fill" style="width:25%;background:#eab308;"></div></div>
+                        <div class="sub-info">城市建设、工厂经营</div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="trend-item">
-                    <div class="trend-stars">⭐⭐</div>
-                    <div class="trend-content">
-                        <h4>射击类 <span class="trend-arrow down">↓ 缓慢下降</span></h4>
-                        <div class="trend-desc">超休闲射击产品生命周期缩短，买量成本攀升。获客成本上升，ROI承压。</div>
-                        <div class="core-thinking">
-                            <div class="core-thinking-title">💡 核心思考</div>
-                            <div class="core-thinking-content">
-                                <strong>为什么下降：</strong>射击品类在超休闲领域是"伪需求"——用户被广告吸引进来（"一枪一个僵尸"的爽感），但发现实际操作复杂、需要瞄准、有挫败感，留存极差。更深层的问题是：射击游戏的核心体验（精准操作、战术配合、成长感）无法在30秒的超休闲体验中满足。厂商发现，与其做超休闲射击，不如直接做中度射击（如《向僵尸开炮》）。<br><br>
-                                <strong>品类分化：</strong>超休闲射击死亡，但中度射击（Roguelike+射击）正在崛起。
-                            </div>
-                        </div>
-                        <div class="analysis">
-                            <div class="pros">
-                                <div class="pros-title">✅ 优势</div>
-                                <div>• 广告素材吸引力强<br>• 男性用户占比高<br>• 付费潜力大</div>
-                            </div>
-                            <div class="cons">
-                                <div class="cons-title">❌ 劣势</div>
-                                <div>• 留存率极低<br>• 获客成本高<br>• 体验与预期不符</div>
-                            </div>
-                        </div>
+        <!-- 趋势分析入口 -->
+        <div class="card">
+            <div class="card-title">📈 趋势分析</div>
+            <div class="trend-entry">
+                <a href="trends-cn.html" class="trend-card">
+                    <div class="trend-card-title">🇨🇳 国内趋势 <span class="arrow">→</span></div>
+                    <div class="trend-card-desc">分析国内小游戏市场各品类发展趋势，含核心思考与优劣势对比</div>
+                    <div class="trend-preview">
+                        <span class="trend-tag up">休闲益智 ↑</span>
+                        <span class="trend-tag up">模拟经营 ↑</span>
+                        <span class="trend-tag down">角色扮演 ↓</span>
                     </div>
-                </div>
+                </a>
+                <a href="trends-global.html" class="trend-card">
+                    <div class="trend-card-title">🌍 海外趋势 <span class="arrow">→</span></div>
+                    <div class="trend-card-desc">分析海外手游市场各品类发展趋势，含核心思考与优劣势对比</div>
+                    <div class="trend-preview">
+                        <span class="trend-tag up">动作跑酷 ↑</span>
+                        <span class="trend-tag up">模拟经营 ↑</span>
+                        <span class="trend-tag down">益智解谜 ↓</span>
+                    </div>
+                </a>
             </div>
         </div>
 
