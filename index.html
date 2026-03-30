@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏市场日报 - 2025年3月30日 | 首页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .news-card { border-left: 4px solid transparent; transition: all 0.3s ease; }
+        .news-card:hover { border-left-color: #667eea; background: #f8fafc; }
+        .tag-policy { background: #fee2e2; color: #dc2626; }
+        .tag-data { background: #dbeafe; color: #2563eb; }
+        .tag-product { background: #d1fae5; color: #059669; }
+        .tag-company { background: #fef3c7; color: #d97706; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="gradient-bg text-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <span class="text-2xl mr-2">🎮</span>
+                    <span class="font-bold text-xl">游策日报</span>
+                    <span class="ml-4 text-sm opacity-75">2025年3月30日</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="px-3 py-2 rounded-md bg-white/20 font-medium">首页</a>
+                    <a href="trends-cn.html" class="px-3 py-2 rounded-md hover:bg-white/10 transition">国内趋势</a>
+                    <a href="trends-global.html" class="px-3 py-2 rounded-md hover:bg-white/10 transition">海外趋势</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 头部数据卡片 -->
+        <div class="grid grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="text-gray-500 text-sm mb-2">微信小游戏MAU</div>
+                <div class="text-3xl font-bold text-indigo-600">5亿+</div>
+                <div class="text-green-500 text-sm mt-2">↑ 同比增长10%</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="text-gray-500 text-sm mb-2">DAU破百万游戏</div>
+                <div class="text-3xl font-bold text-purple-600">70款</div>
+                <div class="text-green-500 text-sm mt-2">↑ 单季流水千万+300款</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="text-gray-500 text-sm mb-2">全球手游3月收入</div>
+                <div class="text-3xl font-bold text-blue-600">$67.9亿</div>
+                <div class="text-green-500 text-sm mt-2">↑ 环比+5.6%</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="text-gray-500 text-sm mb-2">小游戏市场规模</div>
+                <div class="text-3xl font-bold text-pink-600">535亿</div>
+                <div class="text-green-500 text-sm mt-2">2025年同比+38%</div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-8">
+            <!-- 左侧：市场动态 -->
+            <div class="col-span-2">
+                <div class="bg-white rounded-2xl p-6 mb-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="mr-2">📰</span> 市场动态
+                    </h2>
+                    <div class="space-y-4">
+                        <!-- 政策类 -->
+                        <div class="news-card p-4 rounded-lg cursor-pointer" onclick="window.open('https://www.donews.com/news/detail/1/5534130.html', '_blank')">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800 mb-1">300余"爆款"单季流水超千万，微信小游戏用户才是最终裁判</h3>
+                                    <p class="text-gray-600 text-sm">小游戏市场2024年收入398.36亿元，同比增长99.18%，2025年商业规模增速接近20%</p>
+                                </div>
+                                <span class="tag-policy px-2 py-1 rounded text-xs font-medium ml-4 shrink-0">政策</span>
+                            </div>
+                        </div>
+
+                        <div class="news-card p-4 rounded-lg cursor-pointer" onclick="window.open('https://news.qq.com/rain/a/20260115A088KO00', '_blank')">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800 mb-1">iOS小游戏IAP支付即将开放，抽成仅15%</h3>
+                                    <p class="text-gray-600 text-sm">微信与苹果对接中，开发者在70%分成基础上额外获得15%优惠，开发者迎来重大利好</p>
+                                </div>
+                                <span class="tag-policy px-2 py-1 rounded text-xs font-medium ml-4 shrink-0">政策利好</span>
+                            </div>
+                        </div>
+
+                        <!-- 数据类 -->
+                        <div class="news-card p-4 rounded-lg cursor-pointer" onclick="window.open('https://sensortower.com/zh-CN/blog/top-10-worldwide-mobile-games-by-revenue-and-downloads-in-march-2025-CN', '_blank')">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800 mb-1">《Whiteout Survival》登顶3月全球手游收入榜</h3>
+                                    <p class="text-gray-600 text-sm">两周年庆典活动效果显著，创历史收入最高月份，累计收入突破40亿美元</p>
+                                </div>
+                                <span class="tag-data px-2 py-1 rounded text-xs font-medium ml-4 shrink-0">数据</span>
+                            </div>
+                        </div>
+
+                        <div class="news-card p-4 rounded-lg cursor-pointer" onclick="window.open('https://sensortower.com/zh-CN/blog/highest-earning-CN-game-publishers-for-march-2025', '_blank')">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800 mb-1">36家中国厂商入围全球手游发行商收入TOP100</h3>
+                                    <p class="text-gray-600 text-sm">3月合计吸金20亿美元，占全球TOP100手游发行商收入36.9%</p>
+                                </div>
+                                <span class="tag-data px-2 py-1 rounded text-xs font-medium ml-4 shrink-0">数据</span>
+                            </div>
+                        </div>
+
+                        <!-- 产品类 -->
+                        <div class="news-card p-4 rounded-lg cursor-pointer" onclick="window.open('https://www.chuapp.com/article/291136.html', '_blank')">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800 mb-1">《王者荣耀》2025年收入超20亿美元，创历史新高</h3>
+                                    <p class="text-gray-600 text-sm">国民级MOBA手游迎来十周年，同比稳健增长5%，续写现象级IP商业传奇</p>
+                                </div>
+                                <span class="tag-product px-2 py-1 rounded text-xs font-medium ml-4 shrink-0">产品</span>
+                            </div>
+                        </div>
+
+                        <div class="news-card p-4 rounded-lg cursor-pointer" onclick="window.open('https://www.baijing.cn/article/52338', '_blank')">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800 mb-1">《Block Blast!》登顶全球手游下载榜</h3>
+                                    <p class="text-gray-600 text-sm">累计下载量达4.55亿次，益智玩法持续吸量，美国、印度、印尼为核心市场</p>
+                                </div>
+                                <span class="tag-product px-2 py-1 rounded text-xs font-medium ml-4 shrink-0">产品</span>
+                            </div>
+                        </div>
+
+                        <!-- 厂商类 -->
+                        <div class="news-card p-4 rounded-lg cursor-pointer" onclick="window.open('https://www.21jingji.com/article/20250703/herald/0e26da963b5eea3c4d4309c1093fd624.html', '_blank')">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800 mb-1">世纪华通2025年净利润最高69.8亿，同比暴涨475%</h3>
+                                    <p class="text-gray-600 text-sm">《无尽冬日》持续霸榜，全球累计收入超40亿美元，成为小游戏平台SLG标杆</p>
+                                </div>
+                                <span class="tag-company px-2 py-1 rounded text-xs font-medium ml-4 shrink-0">财报</span>
+                            </div>
+                        </div>
+
+                        <div class="news-card p-4 rounded-lg cursor-pointer" onclick="window.open('https://www.yfchuhai.com/article/10227319.html', '_blank')">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800 mb-1">点点互动2025年全球收入激增87%，跃居收入榜亚军</h3>
+                                    <p class="text-gray-600 text-sm">《Whiteout Survival》连续24个月稳坐出海手游收入冠军，累计吸金40亿美元</p>
+                                </div>
+                                <span class="tag-company px-2 py-1 rounded text-xs font-medium ml-4 shrink-0">厂商</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：品类占比 + 趋势入口 -->
+            <div class="col-span-1">
+                <!-- 品类占比 -->
+                <div class="bg-white rounded-2xl p-6 mb-6">
+                    <h2 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="mr-2">📊</span> 品类占比拆解
+                    </h2>
+                    
+                    <!-- 休闲益智 -->
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">休闲益智</span>
+                            <span class="text-blue-600">32%</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mb-2">
+                            消除类45% · 合成类25% · 找茬类15% · 其他15%
+                        </div>
+                        <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded-full" style="width: 32%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 角色扮演 -->
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">角色扮演</span>
+                            <span class="text-purple-600">22%</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mb-2">
+                            传奇类40% · 仙侠类30% · 二次元20% · 其他10%
+                        </div>
+                        <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-purple-500 rounded-full" style="width: 22%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 策略塔防 -->
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">策略塔防</span>
+                            <span class="text-red-600">15%</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mb-2">
+                            SLG45% · 塔防30% · 自走棋15% · 卡牌10%
+                        </div>
+                        <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-red-500 rounded-full" style="width: 15%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 模拟经营 -->
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">模拟经营</span>
+                            <span class="text-green-600">12%</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mb-2">
+                            农场40% · 开店30% · 装修20% · 其他10%
+                        </div>
+                        <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-green-500 rounded-full" style="width: 12%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 趋势分析入口 -->
+                <div class="bg-white rounded-2xl p-6">
+                    <h2 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="mr-2">📈</span> 趋势分析
+                    </h2>
+                    <div class="space-y-4">
+                        <a href="trends-cn.html" class="block bg-gradient-to-r from-red-500 to-pink-500 rounded-xl p-4 text-white card-hover">
+                            <h3 class="font-bold text-lg">🇨🇳 国内趋势</h3>
+                            <p class="text-sm opacity-90 mt-1">完整趋势分析（含核心思考）</p>
+                            <div class="mt-3 flex items-center text-sm">
+                                <span>查看详情</span>
+                                <span class="ml-2">→</span>
+                            </div>
+                        </a>
+                        <a href="trends-global.html" class="block bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl p-4 text-white card-hover">
+                            <h3 class="font-bold text-lg">🌍 海外趋势</h3>
+                            <p class="text-sm opacity-90 mt-1">完整趋势分析（含核心思考）</p>
+                            <div class="mt-3 flex items-center text-sm">
+                                <span>查看详情</span>
+                                <span class="ml-2">→</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-sm opacity-75">数据来源：Sensor Tower · 游戏葡萄 · 36氪 · 七麦数据</p>
+                    <p class="text-sm opacity-75 mt-1">Generated by 游策 - 您的游戏策略合伙人</p>
+                </div>
+                <div class="text-sm opacity-75">
+                    2025年3月30日
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

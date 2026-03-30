@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海外趋势分析 | 游戏市场日报 - 2025年3月30日</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .trend-up { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .trend-down { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+        .trend-stable { background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .heatmap-high { background: #10b981; color: white; }
+        .heatmap-medium { background: #3b82f6; color: white; }
+        .heatmap-low { background: #6b7280; color: white; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="gradient-bg text-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <span class="text-2xl mr-2">🎮</span>
+                    <span class="font-bold text-xl">游策日报</span>
+                    <span class="ml-4 text-sm opacity-75">海外趋势分析</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="px-3 py-2 rounded-md hover:bg-white/10 transition">首页</a>
+                    <a href="trends-cn.html" class="px-3 py-2 rounded-md hover:bg-white/10 transition">国内趋势</a>
+                    <a href="trends-global.html" class="px-3 py-2 rounded-md bg-white/20 font-medium">海外趋势</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 页面标题 -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">🌍 海外手游市场趋势分析</h1>
+            <p class="text-gray-500 mt-2">基于Sensor Tower数据与全球榜单深度分析</p>
+        </div>
+
+        <!-- 关键数据 -->
+        <div class="grid grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="text-gray-500 text-sm mb-2">全球手游年收入</div>
+                <div class="text-3xl font-bold text-indigo-600">$823亿</div>
+                <div class="text-green-500 text-sm mt-2">↑ 同比+1.3%</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="text-gray-500 text-sm mb-2">海外手游收入</div>
+                <div class="text-3xl font-bold text-purple-600">$698亿</div>
+                <div class="text-green-500 text-sm mt-2">↑ 同比+2%</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="text-gray-500 text-sm mb-2">合成手游增速</div>
+                <div class="text-3xl font-bold text-pink-600">+95%</div>
+                <div class="text-green-500 text-sm mt-2">市场规模$24亿</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="text-gray-500 text-sm mb-2">策略手游增速</div>
+                <div class="text-3xl font-bold text-blue-600">+20%</div>
+                <div class="text-green-500 text-sm mt-2">收入超$200亿</div>
+            </div>
+        </div>
+
+        <!-- 趋势热力图 -->
+        <div class="bg-white rounded-2xl p-6 mb-8">
+            <h2 class="text-xl font-bold text-gray-800 mb-6">🔥 品类趋势热力图</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b-2 border-gray-100">
+                            <th class="text-left py-3 px-4">品类</th>
+                            <th class="text-center py-3 px-4">趋势方向</th>
+                            <th class="text-center py-3 px-4">趋势强度</th>
+                            <th class="text-center py-3 px-4">海外评分</th>
+                            <th class="text-center py-3 px-4">推荐度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-50">
+                            <td class="py-4 px-4 font-semibold">动作跑酷</td>
+                            <td class="py-4 px-4 text-center"><span class="trend-up px-3 py-1 rounded-full text-white text-sm">↑ 上升</span></td>
+                            <td class="py-4 px-4 text-center"><span class="heatmap-high px-3 py-1 rounded font-bold">90%</span></td>
+                            <td class="py-4 px-4 text-center text-yellow-500">⭐⭐⭐⭐⭐</td>
+                            <td class="py-4 px-4 text-center"><span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">强烈推荐</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-50">
+                            <td class="py-4 px-4 font-semibold">模拟经营</td>
+                            <td class="py-4 px-4 text-center"><span class="trend-up px-3 py-1 rounded-full text-white text-sm">↑ 上升</span></td>
+                            <td class="py-4 px-4 text-center"><span class="heatmap-high px-3 py-1 rounded font-bold">85%</span></td>
+                            <td class="py-4 px-4 text-center text-yellow-500">⭐⭐⭐⭐⭐</td>
+                            <td class="py-4 px-4 text-center"><span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">强烈推荐</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-50">
+                            <td class="py-4 px-4 font-semibold">合成Merge</td>
+                            <td class="py-4 px-4 text-center"><span class="trend-up px-3 py-1 rounded-full text-white text-sm">↑ 上升</span></td>
+                            <td class="py-4 px-4 text-center"><span class="heatmap-medium px-3 py-1 rounded font-bold">80%</span></td>
+                            <td class="py-4 px-4 text-center text-yellow-500">⭐⭐⭐⭐</td>
+                            <td class="py-4 px-4 text-center"><span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">推荐</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-50">
+                            <td class="py-4 px-4 font-semibold">策略SLG</td>
+                            <td class="py-4 px-4 text-center"><span class="trend-up px-3 py-1 rounded-full text-white text-sm">↑ 上升</span></td>
+                            <td class="py-4 px-4 text-center"><span class="heatmap-medium px-3 py-1 rounded font-bold">75%</span></td>
+                            <td class="py-4 px-4 text-center text-yellow-500">⭐⭐⭐⭐</td>
+                            <td class="py-4 px-4 text-center"><span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">推荐</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-50">
+                            <td class="py-4 px-4 font-semibold">益智解谜</td>
+                            <td class="py-4 px-4 text-center"><span class="trend-stable px-3 py-1 rounded-full text-white text-sm">→ 稳定</span></td>
+                            <td class="py-4 px-4 text-center"><span class="heatmap-medium px-3 py-1 rounded font-bold">60%</span></td>
+                            <td class="py-4 px-4 text-center text-yellow-500">⭐⭐⭐</td>
+                            <td class="py-4 px-4 text-center"><span class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-bold">观望</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 详细趋势分析 -->
+        <div class="grid grid-cols-2 gap-6">
+            <!-- 动作跑酷 -->
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800">🏃 动作跑酷</h3>
+                    <span class="trend-up px-3 py-1 rounded-full text-white text-sm">↑ 上升</span>
+                </div>
+                <div class="mb-4">
+                    <div class="flex justify-between text-sm mb-1">
+                        <span>趋势强度</span>
+                        <span class="font-bold text-green-600">90%</span>
+                    </div>
+                    <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-green-500 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div>
+                        <h4 class="font-semibold text-gray-700 text-sm">💡 核心思考</h4>
+                        <p class="text-gray-600 text-sm mt-1">融合RPG元素的跑酷玩法兴起，《Kingshot》等融合玩法产品表现亮眼。无尽跑酷、障碍跑酷、融合RPG跑酷成为三大细分方向。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-700 text-sm">✅ 优势</h4>
+                        <ul class="text-gray-600 text-sm mt-1 space-y-1">
+                            <li>• 用户接受度高，全球普适性强</li>
+                            <li>• 融合玩法创新空间大</li>
+                            <li>• 广告变现效果好</li>
+                            <li>• 适合短视频营销</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-700 text-sm">❌ 劣势</h4>
+                        <ul class="text-gray-600 text-sm mt-1 space-y-1">
+                            <li>• 经典玩法同质化严重</li>
+                            <li>• 用户新鲜感消退快</li>
+                            <li>• 需要持续内容更新</li>
+                            <li>• 获客成本上升</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模拟经营 -->
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800">🏡 模拟经营</h3>
+                    <span class="trend-up px-3 py-1 rounded-full text-white text-sm">↑ 上升</span>
+                </div>
+                <div class="mb-4">
+                    <div class="flex justify-between text-sm mb-1">
+                        <span>趋势强度</span>
+                        <span class="font-bold text-green-600">85%</span>
+                    </div>
+                    <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-green-500 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div>
+                        <h4 class="font-semibold text-gray-700 text-sm">💡 核心思考</h4>
+                        <p class="text-gray-600 text-sm mt-1">海外用户对模拟类游戏接受度高，长留存+高变现。《Family Farm》《Merge Mansion》等持续霸榜，农场、豪宅题材受欢迎。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-700 text-sm">✅ 优势</h4>
+                        <ul class="text-gray-600 text-sm mt-1 space-y-1">
+                            <li>• 用户留存率高，LTV好</li>
+                            <li>• 女性用户占比高</li>
+                            <li>• 适合长线运营</li>
+                            <li>• 混变模式成熟</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-700 text-sm">❌ 劣势</h4>
+                        <ul class="text-gray-600 text-sm mt-1 space-y-1">
+                            <li>• 内容消耗速度快</li>
+                            <li>• 研发成本相对较高</li>
+                            <li>• 需要本地化运营</li>
+                            <li>• 竞品众多</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 合成Merge -->
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800">🧬 合成Merge</h3>
+                    <span class="trend-up px-3 py-1 rounded-full text-white text-sm">↑ 上升</span>
+                </div>
+                <div class="mb-4">
+                    <div class="flex justify-between text-sm mb-1">
+                        <span>趋势强度</span>
+                        <span class="font-bold text-blue-600">80%</span>
+                    </div>
+                    <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-blue-500 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div>
+                        <h4 class="font-semibold text-gray-700 text-sm">💡 核心思考</h4>
+                        <p class="text-gray-600 text-sm mt-1">2025年合成手游赛道爆发，同比增长95%，市场规模突破24亿美元。《Gossip Harbor》《Merge Dragons》等表现亮眼。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-700 text-sm">✅ 优势</h4>
+                        <ul class="text-gray-600 text-sm mt-1 space-y-1">
+                            <li>• 长留存+高变现</li>
+                            <li>• 发行商重点布局</li>
+                            <li>• 市场教育完成</li>
+                            <li>• 题材创新空间大</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-700 text-sm">❌ 劣势</h4>
+                        <ul class="text-gray-600 text-sm mt-1 space-y-1">
+                            <li>• 头部产品垄断</li>
+                            <li>• 获客成本上升</li>
+                            <li>• 同质化竞争</li>
+                            <li>• 需要持续内容更新</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 策略SLG -->
+            <div class="bg-white rounded-2xl p-6 card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800">⚔️ 策略SLG</h3>
+                    <span class="trend-up px-3 py-1 rounded-full text-white text-sm">↑ 上升</span>
+                </div>
+                <div class="mb-4">
+                    <div class="flex justify-between text-sm mb-1">
+                        <span>趋势强度</span>
+                        <span class="font-bold text-blue-600">75%</span>
+                    </div>
+                    <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-blue-500 rounded-full" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div>
+                        <h4 class="font-semibold text-gray-700 text-sm">💡 核心思考</h4>
+                        <p class="text-gray-600 text-sm mt-1">全球策略手游收入同比增长20%，4X SLG统治市场。《Whiteout Survival》《Last War》领跑，末日、生存题材受欢迎。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-700 text-sm">✅ 优势</h4>
+                        <ul class="text-gray-600 text-sm mt-1 space-y-1">
+                            <li>• ARPU值极高</li>
+                            <li>• 用户付费意愿强</li>
+                            <li>• 长线运营稳定</li>
+                            <li>• 社交属性强</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-700 text-sm">❌ 劣势</h4>
+                        <ul class="text-gray-600 text-sm mt-1 space-y-1">
+                            <li>• 研发成本极高</li>
+                            <li>• 买量成本极高</li>
+                            <li>• 运营门槛高</li>
+                            <li>• 头部垄断严重</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 全球榜单TOP5 -->
+        <div class="mt-8 bg-white rounded-2xl p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-6">🏆 2025年3月全球手游收入TOP5</h2>
+            <div class="grid grid-cols-5 gap-4">
+                <div class="bg-gradient-to-b from-yellow-400 to-yellow-500 rounded-xl p-4 text-white text-center card-hover">
+                    <div class="text-3xl font-bold">1</div>
+                    <div class="font-semibold mt-2 text-sm">Whiteout Survival</div>
+                    <div class="text-xs opacity-75 mt-1">点点互动</div>
+                    <div class="mt-2 text-xs bg-white/20 rounded px-2 py-1">历史新高</div>
+                </div>
+                <div class="bg-gradient-to-b from-gray-300 to-gray-400 rounded-xl p-4 text-white text-center card-hover">
+                    <div class="text-3xl font-bold">2</div>
+                    <div class="font-semibold mt-2 text-sm">Royal Match</div>
+                    <div class="text-xs opacity-75 mt-1">Dream Games</div>
+                </div>
+                <div class="bg-gradient-to-b from-orange-400 to-orange-500 rounded-xl p-4 text-white text-center card-hover">
+                    <div class="text-3xl font-bold">3</div>
+                    <div class="font-semibold mt-2 text-sm">Last War: Survival</div>
+                    <div class="text-xs opacity-75 mt-1">FirstFun</div>
+                </div>
+                <div class="bg-gradient-to-b from-blue-400 to-blue-500 rounded-xl p-4 text-white text-center card-hover">
+                    <div class="text-3xl font-bold">4</div>
+                    <div class="font-semibold mt-2 text-sm">MONOPOLY GO!</div>
+                    <div class="text-xs opacity-75 mt-1">Scopely</div>
+                </div>
+                <div class="bg-gradient-to-b from-purple-400 to-purple-500 rounded-xl p-4 text-white text-center card-hover">
+                    <div class="text-3xl font-bold">5</div>
+                    <div class="font-semibold mt-2 text-sm">王者荣耀</div>
+                    <div class="text-xs opacity-75 mt-1">腾讯</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 投资建议 -->
+        <div class="mt-8 bg-white rounded-2xl p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-6">💡 出海投资建议</h2>
+            <div class="grid grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-green-400 to-green-600 rounded-xl p-6 text-white">
+                    <h3 class="font-bold text-lg mb-3">短期关注</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li>• 融合RPG跑酷玩法</li>
+                        <li>• 合成+剧情类产品</li>
+                        <li>• 模拟经营细分赛道</li>
+                        <li>• 超休闲创新玩法</li>
+                    </ul>
+                </div>
+                <div class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl p-6 text-white">
+                    <h3 class="font-bold text-lg mb-3">中期布局</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li>• 4X SLG新题材</li>
+                        <li>• 末日生存品类</li>
+                        <li>• 女性向游戏出海</li>
+                        <li>• 混变模式产品</li>
+                    </ul>
+                </div>
+                <div class="bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl p-6 text-white">
+                    <h3 class="font-bold text-lg mb-3">长期看好</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li>• AI生成内容游戏</li>
+                        <li>• 跨平台互通产品</li>
+                        <li>• 新兴市场（印度、东南亚）</li>
+                        <li>• IP改编手游</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-sm opacity-75">数据来源：Sensor Tower · 游戏葡萄 · 36氪 · 七麦数据</p>
+                    <p class="text-sm opacity-75 mt-1">Generated by 游策 - 您的游戏策略合伙人</p>
+                </div>
+                <div class="text-sm opacity-75">
+                    2025年3月30日
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
